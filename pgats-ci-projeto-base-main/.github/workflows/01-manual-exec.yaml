@@ -1,39 +1,47 @@
-# nome que vai aparecer no github
+# Nome que vai aparecer no GitHub
 name: 'Execucao manual'
-# triggers ou gatilhos de execucao
-# gatilho de exec manual = workflow_diospatch
+
+# Triggers ou gatilhos de execução
+# Gatilho de execução manual = workflow_dispatch
 on:
   workflow_dispatch:
 
 jobs:
-  # - baixar as dependencias
-  # - compilar
-  # - testar
+  # Job para testes E2E
   e2e-tests:
-    # maquina que vai rodar
-    runs-on: ['ubuntu-latest']
+    # Máquina que vai rodar
+    runs-on: ubuntu-latest
 
-    #passo a paso das acoes do job
+    # Passo a passo das ações do job
     steps:
-      # - run: echo 'Execucao manual'
-      - uses: actions/checkout@v4
-      # - uses: actions/setup-node@v4
-      #     with:
-      #         node-version: lts/*
+      # Checkout do código-fonte
+      - name: Checkout do código
+        uses: actions/checkout@v4
+      
+      # Instalação do Node.js e Yarn
+      - name: Instalar Node.js e Yarn
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      
       - name: Instalando Yarn
         run: npm install -g yarn
 
+      # Instalação das dependências
       - name: Instalando dependências
         run: yarn
 
+      # Instalação do Playwright
       - name: Instalando Playwright
         run: yarn playwright install --with-deps
 
+      # Execução dos testes E2E
       - name: Testes E2E (end-to-end)
         run: yarn run e2e
 
-      - uses: actions/upload-artifact@v4
-        # por padrao a pipeline cancela se houver erro para evitar que ele cancele o passo seguinte no caso de erro, se quiser que a pipeline continue, basta adicionar o parametro 'if: ${{ !cancelled() }}'
+      # Upload do relatório de testes
+      - name: Upload do relatório de testes
+        uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
           name: relatorio-de-testes
