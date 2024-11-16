@@ -4,11 +4,12 @@
   "description": "Projeto da disciplina de CI/CD da PGATS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --config=jest.config.cjs",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "lint:format": "prettier --check --ignore-path .gitignore .",
-    "format": "prettier --write --ignore-path .gitignore ."
+    "format": "prettier --write --ignore-path .gitignore .",
+    "cypress:run": "cypress run"
   },
   "keywords": [],
   "author": "Marcos Antonio Pereira Neto",
