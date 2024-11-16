@@ -16,16 +16,20 @@ jobs:
 
     # Passo a passo das ações do job
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout do código
+        uses: actions/checkout@v3  # Usando a versão mais estável do checkout
 
       - name: Instalando Yarn
-        run: npm install -g yarn
+        run: npm install -g yarn  # Certificando que o Yarn esteja instalado
 
       - name: Instalando dependências
-        run: yarn
+        run: yarn install  # Instalar as dependências do projeto
 
       - name: Instalando Playwright
-        run: yarn playwright install
+        run: yarn playwright install  # Instalar Playwright (necessário para testes E2E)
+
+      - name: Verificando a instalação
+        run: yarn --version  # Verificar se o Yarn está instalado corretamente
 
       - name: Testes E2E (end-to-end)
-        run: yarn run e2e
+        run: yarn run e2e  # Executar os testes E2E configurados
