@@ -1,18 +1,30 @@
 {
   "name": "automacao_web_pgats",
   "version": "1.0.0",
+  "description": "Projeto da disciplina de CI/CD da PGATS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "lint:format": "prettier --check --ignore-path .gitignore .",
+    "format": "prettier --write --ignore-path .gitignore ."
   },
   "keywords": [],
-  "author": "Scorsi Neto, Sandra",
+  "author": "Marcos Antonio Pereira Neto",
   "license": "ISC",
-  "description": "Projeto da disciplina de Automação Web da PGATS",
   "devDependencies": {
+    "@eslint/js": "^9.15.0",
     "@faker-js/faker": "^8.4.1",
     "cypress": "^13.7.3",
-    "cypress-mochawesome-reporter": "^3.8.2"
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.2",
+    "globals": "^15.12.0",
+    "prettier": "^3.3.3",
+    "typescript-eslint": "^8.14.0"
   },
   "dependencies": {
     "browserstack-cypress-cli": "^1.31.4"

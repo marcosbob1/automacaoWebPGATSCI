@@ -5,7 +5,8 @@
     "username": "sandrascorsineto_UOhbNY",
     "access_key": "a2eKT6xsi7jmyzq4jPuj"
   },
-  "browsers": [{
+  "browsers": [
+    {
       "browser": "chrome",
       "os": "Windows 10",
       "versions": ["latest", "latest - 1"]
@@ -36,6 +37,5 @@
     "build_name": "build-name",
     "parallels": 2,
     "exclude": []
-
   }
 }

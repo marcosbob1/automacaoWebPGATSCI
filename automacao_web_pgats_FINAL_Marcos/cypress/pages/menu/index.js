@@ -1,24 +1,23 @@
-class Menu{
-    menus ={
-        PRODUTOS: 'Products'
-    }
+class Menu {
+  menus = {
+    PRODUTOS: "Products",
+  };
 
-    irParaProdutos() {
-        cy.contains(`Products`).click()
-    }
+  irParaProdutos() {
+    cy.contains(`Products`).click();
+  }
 
-    irParaLoginCadastro() {
-        cy.contains('Signup').click()
-    }
+  irParaLoginCadastro() {
+    cy.contains("Signup").click();
+  }
 
-    irParaContactUsForm() {
-        cy.contains('Contact us').click()
-    }
+  irParaContactUsForm() {
+    cy.contains("Contact us").click();
+  }
 
-    irPara(menu){
-        cy.contains(menu).click()
-    }
-
+  irPara(menu) {
+    cy.contains(menu).click();
+  }
 }
 
-export default new Menu()
+export default new Menu();
